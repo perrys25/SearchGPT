@@ -5,11 +5,12 @@ Bringing the Internet, and Chat AI one step closer
 SearchGPT is a library for using [OpenAI](https://openai.com/)'s GPT-3 Language Model & Google Search to power a Question-Answering Chatbot similar to that of Bing's assistant that can do external research as needed to help answer questions
 
 ## How can I try it?
-Clone `SearchGPT`'s git Repo
-Using Python `3.9`
-Run `pip install -r requirements`
-Open `examples`
-Run `py cli.py`
+1. Clone `SearchGPT`'s git Repo
+2. Using Python `3.9`
+3. Run `pip install -r requirements`
+4. Setup a python venv (May vary based on your system / IDE)
+5. Open `examples`
+6. Run `py cli.py`
 
 ## How does the API Work?
 
