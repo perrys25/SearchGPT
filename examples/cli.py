@@ -18,7 +18,6 @@ class FollowupCommand(Command):
         return """
            If a question could use more information, or you have a specific question for the user that could help answer the question (eg. you would like location for requesting weather), use the "[Followup]" command with a question for the user written in the form of a question with proper punctuation and capitalization
            Every search should be followed by it's own "[Followup Response]"
-           An example of a followup would be "Where are you currently located?" after being asked about the weather outside
            Content received in a "[Followup Response]" is from the user directly, and should be taken into consideration along with the "[User]" box as clarification
            """
 
