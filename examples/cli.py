@@ -31,7 +31,7 @@ def printProgress(report):
     elif report["type"] == "Search Response":
         print(YELLOW + "PROGRESS: " + report["response"])
 
-chatbot = ChatBot("Victoria", type="text-based search assist chatbot", progress=printProgress, commands=[FollowupCommand(), SearchCommand()])
+chatbot = ChatBot("Victoria", type="text-based search assist chatbot", purpose="answer people's questions in the most factual way possible, while keeping the length down as long as it is possible without removing content", progress=printProgress, commands=[FollowupCommand(), SearchCommand()])
 while True:
     question = input(WHITE + "QUESTION: " + "How can I help?\n" + GREEN + "INPUT: ")
     answer = chatbot.ask(question)
