@@ -4,11 +4,16 @@ Bringing the Internet, and Chat AI one step closer
 ## What is SearchGPT?
 SearchGPT is a library for using [OpenAI](https://openai.com/)'s GPT-3 Language Model & Google Search to power a Question-Answering Chatbot similar to that of Bing's assistant that can do external research as needed to help answer questions
 
+
+
 ## How can I try it?
+**Option 1:** [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/gist/perrys25/195fd36b6986025e7711b55189cae9b9/searchgpt-demo.ipynb)
+
+**Option 2:**
 1. Clone `SearchGPT`'s git Repo
 2. Using Python `3.9`
-3. Run `pip install -r requirements`
-4. Setup a python venv (May vary based on your system / IDE)
+3. Setup a python venv (May vary based on your system / IDE)
+4. Run `pip install -r requirements.txt` (Make sure you install chrome!)
 5. Open `examples`
 6. Run `py cli.py`
 

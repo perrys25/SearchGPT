@@ -1,14 +1,18 @@
 import abc
 
+
 class Command(abc.ABC):
-    @abc.abstractclassmethod
+    @classmethod
+    @abc.abstractmethod
     def getName(cls) -> str:
         pass
 
-    @abc.abstractclassmethod
+    @classmethod
+    @abc.abstractmethod
     def getDescription(cls) -> str:
         pass
 
-    @abc.abstractclassmethod
+    @classmethod
+    @abc.abstractmethod
     def execute(cls, chatbot, input: str, question: str) -> str:
         pass
