@@ -12,7 +12,7 @@ class ChatBot:
                  , history=True, progress=lambda string: {}):
         # AI Prompt Values
         self.name = name
-
+        self.apiKey = None
         self.commands = commands
         commandDescriptions = ""
         self.stopSequences = ["[User]"]
@@ -48,7 +48,8 @@ class ChatBot:
             prompt=prompt,
             max_tokens=tokens,
             temperature=0.7,
-            stop=stopSequence
+            stop=stopSequence,
+            api_key=self.apiKey
         ).choices[0].text
 
     def ask(self, question):
@@ -72,7 +73,7 @@ class ChatBot:
                     break
             if complete:
                 response = self.__tokenize(
-                    self.completion(prompt + self.__detokenize(conversation) + "[", stopSequence=self.stopSequences))
+                    self.completion(prompt + self.__detokenize(conversation) + "[", stopSequence=["["]))
                 conversation.extend(response)
             if not complete and not keep_going:
                 break

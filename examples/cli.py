@@ -7,10 +7,6 @@ GREEN = "\033[0;32m"
 YELLOW = "\033[0;33m"
 WHITE = "\033[0;37m"
 
-if openai.api_key == None:
-    openai.api_key = input(WHITE + "QUESTION: What is your OpenAI API Key?\n" + GREEN + "INPUT: ")
-
-
 class FollowupCommand(Command):
     def getName(cls):
         return "Followup"
@@ -37,6 +33,10 @@ def printProgress(report):
 chatbot = ChatBot("Victoria", type="text-based search assist chatbot",
                   purpose="answer people's questions in the most factual way possible, while keeping the length down as long as it is possible without removing content",
                   progress=printProgress, commands=[SearchCommand(), FollowupCommand()])
+
+if chatbot.apiKey is None:
+    chatbot.apiKey = input(WHITE + "QUESTION: What is your OpenAI API Key?\n" + GREEN + "INPUT: ")
+
 while True:
     question = input(WHITE + "QUESTION: " + "How can I help?\n" + GREEN + "INPUT: ")
     answer = chatbot.ask(question)
