@@ -21,7 +21,7 @@ async def handler(websocket, path):
             try:
                 reply = chatbot.ask(data["question"])
                 for p in progress:
-                    await websocket.send(json.JSONEncoder().encode({"type": "progress", "progress": p}))
+                    await websocket.send(json.JSONEncoder().encode(p))
                 progress.clear()
                 await websocket.send(json.JSONEncoder().encode({"type": "message", "message": reply}))
             except openai.error.AuthenticationError:
