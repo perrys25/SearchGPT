@@ -7,6 +7,7 @@ GREEN = "\033[0;32m"
 YELLOW = "\033[0;33m"
 WHITE = "\033[0;37m"
 
+
 class FollowupCommand(Command):
     def getName(cls):
         return "Followup"
@@ -30,7 +31,7 @@ def printProgress(report):
         print(YELLOW + "PROGRESS: " + report["response"])
 
 
-chatbot = ChatBot("Victoria", type="text-based search assist chatbot",
+chatbot = ChatBot("Victoria", botType="text-based search assist chatbot",
                   purpose="answer people's questions in the most factual way possible, while keeping the length down as long as it is possible without removing content",
                   progress=printProgress, commands=[SearchCommand(), FollowupCommand()])
 
