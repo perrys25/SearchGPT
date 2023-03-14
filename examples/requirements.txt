@@ -1,1 +1,1 @@
-websockets
+websock
