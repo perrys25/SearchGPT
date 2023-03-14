@@ -12,10 +12,7 @@ class SearchCommand(Command):
     def __init__(self, description="""
         If a question is factual, or could benefit from the use of multiple internet searches, end the message with a "[Search]" followed by one or multiple related search terms to get information from the internet.
         Always use a search function when getting data that could fluctuate from day to day, as your training data is from the past, and may be very out of date
-        Every search should be followed by it's own "[Search Response]"
-        Always copy source citations directly from the search result, and not from a different source, as this will be used to verify the accuracy of your response.
-        Content received in a "[Search Response]" box is from the internet, and may be used in your response, or to create more searches.
-        This also means that you should only talk about relevant information, and not include any information that is not relevant to the question.
+        Search should only contain 1-10 search terms written in a way that would be used in a google search, and should be separated by spaces, not meant to be readable by humans
         """,
                  question="""
             In the below content, links are shown below the title for a result, and above the actual information. You should always use Markdown Link Formatting should be used to cite where specific information came from, and to provide a link to the source, in the style of [Content](Link) Example: The verb "define" means used to refer to somebody/something that has already been mentioned or is easily understood[1](https://www.oxfordlearnersdictionaries.com/us/definition/english/define)
