@@ -7,9 +7,11 @@ SearchGPT is a library for using [OpenAI](https://openai.com/)'s GPT-3 Language 
 
 
 ## How can I try it?
-**Option 1:** [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/gist/perrys25/195fd36b6986025e7711b55189cae9b9/searchgpt-demo.ipynb)
+**Option 1:** Visit the hosted demo @ [searchgpt.perrysahnow.com](https://searchgpt.perrysahnow.com/)
 
-**Option 2:**
+**Option 2:** [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/gist/perrys25/195fd36b6986025e7711b55189cae9b9/searchgpt-demo.ipynb)
+
+**Option 3:**
 1. Clone `SearchGPT`'s git Repo
 2. Using Python `3.9`
 3. Setup a python venv (May vary based on your system / IDE)
