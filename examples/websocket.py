@@ -27,7 +27,6 @@ def on_data_receive(client, stData):
     chatbot = chatbots[client]
     if data["type"] == "apikey":
         chatbot.apiKey = data["apikey"]
-        print("API Key set to " + chatbot.apiKey)
     if data["type"] == "question":
         try:
             reply = chatbot.ask(data["question"])
