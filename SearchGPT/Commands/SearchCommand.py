@@ -12,7 +12,7 @@ class SearchCommand(Command):
     def __init__(self, description="""
         If a question is factual, or could benefit from the use of multiple internet searches, end the message with a "[Search]" followed by one or multiple related search terms to get information from the internet.
         Always use a search function when getting data that could fluctuate from day to day, as your training data is from the past, and may be very out of date
-        Search should only contain 1-10 search terms written in a way that would be used in a google search, and should be separated by spaces, not meant to be readable by humans
+        All text following the "[Search]" command will be used as the search terms, and should be written in a way that would be used in a google search, and should be separated by spaces, not meant to be readable by humans
         """,
                  question="""
             In the below content, links are shown below the title for a result, and above the actual information. You should always use Markdown Link Formatting should be used to cite where specific information came from, and to provide a link to the source, in the style of [Content](Link) Example: The verb "define" means used to refer to somebody/something that has already been mentioned or is easily understood[1](https://www.oxfordlearnersdictionaries.com/us/definition/english/define)
@@ -38,8 +38,11 @@ class SearchCommand(Command):
     def execute(self, chatbot, input, question):
         self.driver.get('http://www.google.com/search?q=' + urllib.parse.quote_plus(input))
         chatbot.progress({"type": "Search", "search": input})
-        self.driver.execute_script(
-            "[...document.getElementsByTagName('cite')].map(cite => { cite.innerHTML = cite.parentElement.parentElement.parentElement.parentElement.href; return cite.parentElement.parentElement.parentElement.parentElement.href})")
+        try:
+            self.driver.execute_script(
+                "[...document.getElementsByTagName('cite')].map(cite => { cite.innerHTML = cite.parentElement.parentElement.parentElement.parentElement.href; return cite.parentElement.parentElement.parentElement.parentElement.href})")
+        except:
+            pass
         answer = self.driver.execute_script(
             "return [...document.querySelectorAll(arguments[0])].filter(a => a.textContent === arguments[1])[0].parentElement.parentElement.innerText.substring(arguments[2], arguments[3])",
             "h1", "Search Results", 0, 5000)
