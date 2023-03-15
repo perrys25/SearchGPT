@@ -13,6 +13,8 @@ class SearchCommand(Command):
         If a question is factual, or could benefit from the use of multiple internet searches, end the message with a "[Search]" followed by one or multiple related search terms to get information from the internet.
         Always use a search function when getting data that could fluctuate from day to day, as your training data is from the past, and may be very out of date
         All text following the "[Search]" command will be used as the search terms, and should be written in a way that would be used in a google search, and should be separated by spaces, not meant to be readable by humans
+        Searches are best for content that is about information that is current (eg. time or weather), that is factual (eg. definitions, statistics), that changes regularly (eg. news, sports), or that is past your training cutoff (eg. history, politics)
+        Remember that the "[Search]" command is a type of response, and should be used separately from a response, and if used run first, before any other response commands
         """,
                  question="""
             In the below content, links are shown below the title for a result, and above the actual information. You should always use Markdown Link Formatting should be used to cite where specific information came from, and to provide a link to the source, in the style of [Content](Link) Example: The verb "define" means used to refer to somebody/something that has already been mentioned or is easily understood[1](https://www.oxfordlearnersdictionaries.com/us/definition/english/define)
