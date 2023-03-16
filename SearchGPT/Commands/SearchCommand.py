@@ -47,7 +47,7 @@ class SearchCommand(Command):
             pass
         answer = self.driver.execute_script(
             "return [...document.querySelectorAll(arguments[0])].filter(a => a.textContent === arguments[1])[0].parentElement.parentElement.innerText.substring(arguments[2], arguments[3])",
-            "h1", "Search Results", 0, 5000)
+            "h1", "Search Results", 0, 1500)
         summary = chatbot.completion([
             {"role": "system", "content": self.question.replace("{question}", question)},
             {"role": "user", "content": answer},

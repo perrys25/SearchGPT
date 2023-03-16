@@ -17,20 +17,25 @@ def on_data_receive(client, stData):
     chatbot = chatbots[client]
     if data["type"] == "apikey":
         chatbot.apiKey = data["apikey"]
+        key = data["apikey"]
+        models = chatbot.listModels()
+        server.send(client, json.dumps({"type": "models", "models": models, "apikey": key}))
+    elif data["type"] == "model":
+        chatbot.model = data["model"]
     if data["type"] == "question":
         try:
             reply = chatbot.ask(data["question"])
-            server.send(client, json.JSONEncoder().encode({"type": "message", "message": reply}))
+            server.send(client, json.dumps({"type": "message", "message": reply}))
         except openai.error.AuthenticationError:
-            server.send(client, json.JSONEncoder().encode({"type": "error", "error": "Invalid API Key"}))
+            server.send(client, json.dumps({"type": "error", "error": "Invalid API Key"}))
         except openai.error.APIConnectionError:
             server.send(client,
-                json.JSONEncoder().encode({"type": "error", "error": "Could not connect to OpenAI API"}))
+                json.dumps({"type": "error", "error": "Could not connect to OpenAI API"}))
         except openai.error.APIError as e:
             server.send(client,
-                json.JSONEncoder().encode({"type": "error", "error": "OpenAI API Error: " + str(e)}))
+                json.dumps({"type": "error", "error": "OpenAI API Error: " + str(e)}))
         except Exception as e:
-            server.send(client, json.JSONEncoder().encode({"type": "error", "error": "Unknown Error: " + str(e)}))
+            server.send(client, json.dumps({"type": "error", "error": "Unknown Error: " + str(e)}))
 
 
 
