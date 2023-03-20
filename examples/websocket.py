@@ -43,7 +43,7 @@ def on_connection_open(client):
     global nextID
     nextID += 1
     chatbot = ChatBot("SearchGPT",
-                      botType="Web UI based text-based search assist chatbot. The source code is available on https://github.com/perrys25/SearchGPT",
+                      botType="Web UI based text-based search assist chatbot.",
                       progress=lambda p: server.send(client, json.dumps(p)), commands=[search])
     chatbots[client] = chatbot
 
